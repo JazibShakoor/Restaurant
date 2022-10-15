@@ -1,0 +1,57 @@
+.Container {
+    background: url('https://static.dezeen.com/uploads/2021/09/yodezeen-virgin-izakayaa-bar-japanese-restaurant-kyiv-interiors_dezeen_2364_hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+}
+
+.Container h1 {
+    margin: 0;
+    text-align: center;
+    padding-top: 250px;
+    font-size: 50px;
+    font-weight: bolder;
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+}
+
+.Container p {
+    text-align: center;
+    font-size: larger;
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+    font-weight: bold ;
+}
+
+.MiddleContainer {
+    text-align: center;
+    padding: 0 100px;
+    background-color: goldenrod;
+}
+
+.MiddleContainer h1 {
+    margin: 0;
+}
+
+.VideoSize {
+  margin: 5% 20%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    width: 100%;
+    border: 1px solid #ec2d2d;
+    border-radius: 10px;
+  }
+  
+  td, th {
+    border: 1px solid #ec2d2d;
+    padding: auto;
+    text-align: center;
+  }
+
+  .CardContainer {
+    margin: 0 25%;
+    width: 50%;
+    height: auto;
+  }

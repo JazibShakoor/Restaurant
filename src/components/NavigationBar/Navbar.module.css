@@ -1,0 +1,109 @@
+.Navbar {
+    display: flex;
+    border-bottom: 1px solid black;
+    background-color: red;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.Heading {
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid red;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.Heading:hover {
+    border: 1px solid green;
+    border-radius: 15%;
+    color: rgb(3, 97, 3);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(241, 239, 239, 0.808);
+    transition-duration: 0.3s;
+    transition-property: box-shadow;
+    vertical-align: middle;
+}
+
+.Heading p {
+    font-size: 12px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.Heading h1 {
+    margin: 0 5px;
+    margin-bottom: 35px;
+    font-size: 25px;
+    color: white;
+    font-weight: bolder;
+}
+
+.BullteList {
+    list-style: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    padding: 0;
+}
+
+.Sub_Heading input[type=checkbox]{
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+    padding-right: 1rem;
+}
+
+.Buttondesgin button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: red;
+    font-size: larger;
+}
+
+.Buttondesgin button:hover {
+    border: 1px solid green;
+    color: rgb(3, 97, 3);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(241, 239, 239, 0.808);
+    transition-duration: 0.3s;
+    transition-property: box-shadow;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .BullteList {
+        display:none;
+        position: absolute;
+        background-color: red;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 12px 0;
+    }
+
+    .BullteList li:hover {
+        display: inline-block;
+        background-color: red;
+        transition: 0.3s ease;
+    }
+
+    /* .BullteList li + li {
+        margin-top: 12px;
+      } */
+
+    .Sub_Heading input[type=checkbox]:checked ~ .BullteList{
+        display: block;
+    }  
+
+    .hamburger {
+        display: block;
+      }
+}

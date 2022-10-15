@@ -1,0 +1,46 @@
+.Cover {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .Cover {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        justify-content: space-around;
+        align-content: center;
+        flex-direction: row;
+        align-items: center;
+}
+}
+
+.Pack {
+    display: inline-block;
+    padding: 20px;
+    background-color: #e5e5e5;
+    width: 350px;
+    border-radius: 20px;
+    font-family: Quicksand;
+    margin-top: 40px;
+    color: #000;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.Sizing {
+    text-align: center;
+}
+
+.Sizing img {
+    width: 100%;
+}

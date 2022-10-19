@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Card from '../../Ui/Card';
-import classes from '../../../Pages/Home/Home.module.css';
+import classes from '../../Pages/Home/Home.module.css';
 
 const HomeContent: React.FC = () => {
     return (<Fragment>

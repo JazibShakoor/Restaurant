@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from '../../Pages/MuneItem/MuneItem.module.css';
 import Card from '../../Ui/Card';
 
@@ -16,7 +17,7 @@ const DiscountMeals: React.FC<TodoListProps> = (props) => {
            <h3>{props.Ditems.name}</h3>
            <h3>{`Discount: ${props.Ditems.discount}%`}</h3>
            <span>
-            <button>Edit</button>
+           <Link to={`UpdateForm/${props.Ditems.id}`}><button>Edit</button></Link>
             <button onClick={props.onDeleteItem.bind(null, props.Ditems.id)}>Delete</button>
            </span>
         </div> 

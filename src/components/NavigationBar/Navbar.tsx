@@ -14,9 +14,9 @@ const Navbar: React.FC = () => {
               &#9776;
             </label>
             <div className={classes.BullteList}>
-               <li className={classes.Buttondesgin}><button><Link to='/'>Home</Link></button></li>
-               <li className={classes.Buttondesgin}><button><Link to='/MuneItem'>More</Link></button></li>
-               <li className={classes.Buttondesgin}><button><Link to='/Form'>Form</Link></button></li>
+               <Link to='/'><li className={classes.Buttondesgin}><button>Home</button></li></Link>
+               <Link to='/MuneItem'><li className={classes.Buttondesgin}><button>More</button></li></Link>
+               <Link to='/Form'><li className={classes.Buttondesgin}><button>Form</button></li></Link>
             </div>
         </ul>
     </nav>

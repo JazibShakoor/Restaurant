@@ -9,7 +9,6 @@ interface TodoListProps {
   }
 
 const Meals: React.FC<TodoListProps> = (props) => {
-  const updateHandler = () => {};
 
     return (
       <div className={classes.Pack}>
@@ -18,7 +17,7 @@ const Meals: React.FC<TodoListProps> = (props) => {
           <img src={props.items.image} alt=''></img>
           <h3>{props.items.name}</h3>
           <span>
-            <Link to={`UpdateForm/${props.items.id}`}><button onClick={updateHandler}>Edit</button></Link>
+            <Link to={`UpdateForm/${props.items.id}`}><button>Edit</button></Link>
             <button onClick={props.onDeleteItem.bind(null, props.items.id)}>Delete</button>
           </span>
         </div> 

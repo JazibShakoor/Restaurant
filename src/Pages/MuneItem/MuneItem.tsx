@@ -1,38 +1,44 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import Meals from '../../components/Container/Meals';
 import DiscountMeals from '../../components/Container/DiscountMeals';
 import Navbar from '../../components/NavigationBar/Navbar';
 import classes from './MuneItem.module.css';
-
-export const FoodsItems: { id: string, name: string, image: string, discount?: number}[] = [
-{ id: 'A01', name: "Sushi", image: "https://byfood.b-cdn.net/api/public/assets/8185/salmon-nigiri-%20sushi?optimizer=image",},
-{ id: 'A02', name: 'Okonamiyaki', image: 'https://byfood.b-cdn.net/api/public/assets/8168/okonomiyaki?optimizer=image', discount: 20},
-{ id: 'A03', name: 'Miso Soup', image: 'https://byfood.b-cdn.net/api/public/assets/8186/miso%20soup?optimizer=image'},
-{ id: 'A04', name: 'Yakitori ', image: 'https://byfood.b-cdn.net/api/public/assets/8169/yakitori?optimizer=image'},
-{ id: 'A05', name: 'Udon', image: 'https://byfood.b-cdn.net/api/public/assets/8170/udon?optimizer=image', discount: 15}]
+import useFetchApi from '../../store/FetchApis';
+import Donut from '../../Ui/donut';
+import useUpdateApi from '../../store/UpdateApi';
 
 const MuneItem: React.FC = () => {
-  const [At, setAt] = useState(FoodsItems.filter(item => !item.discount))
-  const [Dt, setDt] = useState(FoodsItems.filter(item => item.discount))
+  const { fetchedValue, data } = useFetchApi();
+  const { UpdateData } = useUpdateApi();
 
-  const itemDeleteHandler = (itemId: string) => {
-    setAt(preItem => { return preItem.filter(item => item.id !== itemId && !item.discount)})
-    setDt(preItem => { return preItem.filter(item => item.id !== itemId && item.discount)})
+  useEffect(() => {
+    fetchedValue();
+  }, [fetchedValue]);
+
+  const itemDeleteHandler = async (itemId: string) => {
+    const deleteItem = data.filter(item => item.id !== itemId);
+
+    UpdateData(deleteItem)
+
   };
 
-    return (
-        <Fragment>
-            <Navbar />
-            <h1 style={{textAlign: "center"}}>Traditional Japanses Food</h1>
-            <div className={classes.Cover}>
-              {At.map(x => (<Meals key={x.id} items={x} onDeleteItem={itemDeleteHandler} />))}
-            </div>
-            <h1 style={{textAlign: "center"}}>Discount Food Item</h1>
-            <div className={classes.Cover}>
-              {Dt.map(y => (<DiscountMeals key={y.id} Ditems={y} onDeleteItem={itemDeleteHandler} />))}
-            </div>
-        </Fragment>
-    )
+  let WithOutDiscount = data && data.filter(y => !y.discount);
+  let WithDiscount = data && data.filter(x => x.discount)
+
+
+  return (
+    <Fragment>
+      <Navbar />
+      <h1 style={{ textAlign: "center" }}>Traditional Japanses Food</h1>
+      <div className={classes.Cover}>
+        {data ? WithOutDiscount?.map(x => (<Meals key={x.id} items={x} onDeleteItem={itemDeleteHandler} />)) : <Donut />}
+      </div>
+      <h1 style={{ textAlign: "center" }}>Discount Food Item</h1>
+      <div className={classes.Cover}>
+        {data ? WithDiscount?.map(y => (<DiscountMeals key={y.id} Ditems={y} onDeleteItem={itemDeleteHandler} />)) : <Donut />}
+      </div>
+    </Fragment>
+  )
 };
 
 export default MuneItem;
